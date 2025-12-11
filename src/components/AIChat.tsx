@@ -3,6 +3,7 @@ import { Send, Sparkles, Loader2 } from 'lucide-react';
 import { Button } from './ui/button';
 import { Input } from './ui/input';
 import { getChatHistory, sendAIChatMessage } from '../utils/api-new';
+import { AIResponse } from './AIResponse';
 
 type Message = {
   id: string;
@@ -235,7 +236,12 @@ export function AIChat() {
                     : 'bg-gray-100 text-gray-900'
                 }`}
               >
-                <p className="whitespace-pre-wrap">{message.content}</p>
+                {/* 如果是 AI 发的消息，使用 AIResponse 组件处理；如果是用户，保持原样 */}
+{message.sender === 'ai' ? (
+  <AIResponse content={message.content} />
+) : (
+  <p className="whitespace-pre-wrap">{message.content}</p>
+)}
                 <span className="text-xs opacity-70 mt-1 block">
                   {message.timestamp.toLocaleTimeString('zh-CN', {
                     hour: '2-digit',
