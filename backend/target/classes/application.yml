@@ -60,7 +60,7 @@ jwt:
 # ---------------------------------------
 cors:
   # 允许的来源
-  allowed-origins: "http://localhost:5173,http://127.0.0.1:5173,http://localhost:3000,http://127.0.0.1:3000,http://localhost:3001,http://127.0.0.1:3001"
+  allowed-origins: "https://suat.ms1001.com,https://www.suat.ms1001.com,http://localhost:5173,http://127.0.0.1:5173,http://localhost:3000,http://127.0.0.1:3000,http://localhost:3001,http://127.0.0.1:3001"
   # 允许的 HTTP 方法
   allowed-methods: "GET,POST,PUT,DELETE,OPTIONS"
   # 允许的请求头：* 表示允许所有请求头
@@ -97,7 +97,11 @@ ai:
     model: Qwen-embedding
 
   # 4. 公网 Qwen 配置 (对应前端: Qwen Max(公网))
-  # 这里的 API Key 是导致之前报错的原因，我填了一个占位符，防止报错
   qwen-public:
     base-url: https://dashscope.aliyuncs.com/compatible-mode/v1
-    api-key: "placeholder-key-to-avoid-startup-error"
+    api-key: sk-56dbfe08b2124f9791240183bc1b236e
+
+  # 5. 公网 DeepSeek 配置 (对应前端: DeepSeek(公网))
+  deepseek-public:
+    base-url: https://api.deepseek.com
+    api-key: sk-4815d4f03b24410d88239af4af478e0a
